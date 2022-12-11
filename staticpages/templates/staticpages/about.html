@@ -5,11 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
+    <title>PSIU - Quem somos nós?</title>
 </head>
 
 <body>
-    <h2>Quem somos nós?</h2>
+    <header id="cabecalho-principal">
+        <nav id="navegacao-principal">
+            <a href="{% url 'index' %}">
+                <p>Página inicial</p>
+            </a>
+            <ul>
+                <li><a href="{% url 'about' %}">Sobre</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <main id="conteiner-principal">
+        <h2>Quem somos nós?</h2>
+    </main>
+    <footer id="rodape-principal">
+        <hr>
+        <p>
+            <small>Copyright 2021</small>
+        </p>
+    </footer>
 </body>
 
 </html>
