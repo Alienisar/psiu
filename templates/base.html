@@ -1,24 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-{% extends 'base.html' %}
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        {% block title %}
-        PSIU! - Quem somos nós?
-        {% endblock title %}
+        {% block title %}{% endblock %} | Watch that film!
     </title>
 </head>
 
 <body>
     <header id="cabecalho-principal">
+        <a href="{% url 'index' %}">
+            <p>Página inicial</p>
+        </a>
         <nav id="navegacao-principal">
-            <a href="{% url 'index' %}">
-                <p>Página inicial</p>
-            </a>
             <ul>
                 <li><a href="{% url 'about' %}">Sobre</a></li>
             </ul>
@@ -27,7 +24,6 @@
     </header>
     <main id="conteiner-principal">
         {% block content %}
-        <h2>Quem somos nós?</h2>
         {% endblock content %}
     </main>
     <footer id="rodape-principal">
