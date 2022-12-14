@@ -15,11 +15,11 @@ class GostosDoPaciente(models.Model):
     gostos = models.ForeignKey(Gostos, on_delete=models.CASCADE)
 
     def __str__(self):
-       return f'"{self.list(gostos)}" - {self.nome_do_paciente.username}'
+       return f'"{self.gostos}" - {self.nome_do_paciente}'
 
 class GostosDoPsico(models.Model):
     nome_do_psico =  models.CharField(max_length=255)
     gostos = models.ForeignKey(Gostos, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'"{self.list(gostos)}" - {self.nome_do_psico.username}'
+        return f'"{self.gostos}" - {self.nome_do_psico}'
