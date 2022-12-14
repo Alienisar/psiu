@@ -20,5 +20,6 @@ urlpatterns = [
     path('', include('staticpages.urls')), # modifique esta linha
     path('esqueleto/', include('esqueleto.urls')), # linha adicionada 3.5.2
     path('accounts/', include('accounts.urls')), # linha adicionada 4.2.2
+    path('accounts/', include('django.contrib.auth.urls')), # linha adicionada 4.2.3
     path('admin/', admin.site.urls),
 ]
