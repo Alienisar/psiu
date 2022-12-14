@@ -1,3 +1,26 @@
 from django.db import models
+from django.conf import settings
 
-# Create your models here.
+
+class Gostos(models.Model):
+    gosto = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f'{self.gosto}'
+
+
+class GostosDoPaciente(models.Model):
+    nome_do_paciente =  models.ForeignKey(settings.AUTH_USER_MODEL,
+                               on_delete=models.CASCADE)
+    gostos = models.ForeignKey(Gostos, on_delete=models.CASCADE)
+
+    def __str__(self):
+       return f'"{self.list(gostos)}" - {self.nome_do_paciente.username}'
+
+class GostosDoPsico(models.Model):
+    nome_do_psico =  models.ForeignKey(settings.AUTH_USER_MODEL,
+                               on_delete=models.CASCADE)
+    gostos = models.ForeignKey(Gostos, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'"{self.list(gostos)}" - {self.nome_do_psico.username}'

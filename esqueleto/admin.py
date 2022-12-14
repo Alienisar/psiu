@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Gostos, GostosDoPaciente, GostosDoPsico
+
+admin.site.register(Gostos)
+admin.site.register(GostosDoPaciente)
+admin.site.register(GostosDoPsico)
