@@ -18,5 +18,7 @@ from django.urls import include, path # modificar esta linha
 
 urlpatterns = [
     path('', include('staticpages.urls')), # modifique esta linha
+    path('esqueleto/', include('esqueleto.urls')), # linha adicionada 3.5.2
+    path('accounts/', include('accounts.urls')), # linha adicionada 4.2.2
     path('admin/', admin.site.urls),
 ]

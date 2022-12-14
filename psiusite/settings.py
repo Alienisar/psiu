@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-51f2v=f(&=(t+_n8#ed2@=-wu&j%^1q73wjlsy3y8m-m82mb36
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mendesmaariana.pythonanywhere.com']
+ALLOWED_HOSTS = ['mendesmaariana.pythonanywhere.com', '127.0.0.1',]
 
 
 # Application definition
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'staticpages.apps.StaticpagesConfig', # adicione esta linha
+    'esqueleto.apps.EsqueletoConfig', # linha adicionada 3.5.2
+    'accounts.apps.AccountsConfig', # linha adicionada 5.2.1
 ]
 
 MIDDLEWARE = [
@@ -105,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 
