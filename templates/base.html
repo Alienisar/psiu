@@ -19,10 +19,15 @@
         <a href="{% url 'index' %}"> <img src="{% static 'logo.png' %}"> </a>
         <nav id="navegacao-principal">
             <ul>
+                {% if user.is_authenticated %}
+                    <li> Olá, {{ user.username }}! </li>
+                    <li><a href="{% url 'logout' %}">Log out</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Log in</a></li>
+                {% endif %}
                 <li><a href="{% url 'about' %}">Sobre</a></li>
             </ul>
         </nav>
-
     </header>
     <main id="conteiner-principal">
         {% block content %}
