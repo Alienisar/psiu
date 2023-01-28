@@ -17,5 +17,20 @@ def detail_gostos(request, gostos_id):
 
 def detail_gostos(request, gostos_id):
     gostos = get_object_or_404(Gostos, pk=gostos_id)
+    if 'last_viewed' not in request.session:
+        request.session['last_viewed'] = []
+    request.session['last_viewed'] = [gostos_id] + request.session['last_viewed']
+    if len(request.session['last_viewed']) > 5:
+        request.session['last_viewed'] = request.session['last_viewed'][:-1]
     context = {'gostos': gostos}
     return render(request, 'gostos/detail.html', context)
+
+
+def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if 'last_viewed' in self.request.session:
+            context['last_gostos'] = []
+            for gostos_id in self.request.session['last_viewed']:
+                context['last_gostos'].append(
+                    get_object_or_404(Gostos, pk=gostos_id))
+        return context    
