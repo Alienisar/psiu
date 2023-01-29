@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os # linha adicionada 3.3.4
+#AUTH_USER_MODEL = 'esqueleto.User'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'staticpages.apps.StaticpagesConfig', # adicione esta linha
     'esqueleto.apps.EsqueletoConfig', # linha adicionada 3.5.2
     'accounts.apps.AccountsConfig', # linha adicionada 5.2.1
+    #'esqueleto', 
 ]
 
 MIDDLEWARE = [
