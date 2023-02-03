@@ -10,6 +10,7 @@ Criar Usuário
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
+    <!--
     <label for="name">Nome completo:</label><br>
     <input type="text" id="fname" name="name"><br>
     <label for="email">Email:</label><br>
@@ -29,6 +30,7 @@ Criar Usuário
     <input type="file" name="parquivo" id="parquivo" />
     <br><br>
     <button type="submit">Criar</button>
+    -->
 </form>
 
 {% endblock content %}

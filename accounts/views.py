@@ -12,26 +12,31 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user= form.save()
-            user_group = Group.objects.get(name='Paciente') 
+            user_group = Group.objects.get(name='usuario')       # antes era 'Paciente'
             user.groups.add(user_group)
-            return HttpResponseRedirect(reverse('index'))
+            return HttpResponseRedirect(reverse('profile'))      # antes era 'index'
     else:
         form = UserCreationForm()
 
     context = {'form': form}
     return render(request, 'accounts/signup.html', context)
 
-def signup_psi(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user= form.save()
-            user_group = Group.objects.get(name='Psicologo') 
-            user.groups.add(user_group)
+def profile(request):
+    return render(request, 'accounts/profile.html')
 
-            return HttpResponseRedirect(reverse('index'))
-    else:
-        form = UserCreationForm()
+'''
+    def signup_psi(request):
+        if request.method == 'POST':
+            form = UserCreationForm(request.POST)
+            if form.is_valid():
+                user= form.save()
+                user_group = Group.objects.get(name='Psicologo') 
+                user.groups.add(user_group)
 
-    context = {'form': form}
-    return render(request, 'accounts/signup_psi.html', context)
+                return HttpResponseRedirect(reverse('index'))
+        else:
+            form = UserCreationForm()
+
+        context = {'form': form}
+        return render(request, 'accounts/signup_psi.html', context)
+'''
