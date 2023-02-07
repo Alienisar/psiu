@@ -22,4 +22,5 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')), # linha adicionada 4.2.2
     path('accounts/', include('django.contrib.auth.urls')), # linha adicionada 4.2.3
     path('admin/', admin.site.urls),
+    path('api/v1/', include('api.urls')),
 ]

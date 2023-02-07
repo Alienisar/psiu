@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'staticpages.apps.StaticpagesConfig', # adicione esta linha
     'esqueleto.apps.EsqueletoConfig', # linha adicionada 3.5.2
     'accounts.apps.AccountsConfig', # linha adicionada 5.2.1
+    'api.apps.ApiConfig',
     #'rest_framework',
     #'esqueleto', 
 ]

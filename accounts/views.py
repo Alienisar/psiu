@@ -19,7 +19,7 @@ def signup(request):
                                     password=form.cleaned_data['password1'],
                                     )
             login(request, user)
-            return HttpResponseRedirect(reverse('index'))      # antes era 'index'
+            return HttpResponseRedirect(reverse('profile'))      # antes era 'index'
     else:
         form = UserCreationForm()
 
