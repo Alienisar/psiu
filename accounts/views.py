@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group
+from django.contrib.auth import authenticate, login
 
 
 def signup(request):
@@ -12,9 +13,13 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user= form.save()
-            user_group = Group.objects.get(name='usuario')       # antes era 'Paciente'
+            user_group = Group.objects.get(name='Paciente')       # antes era 'Paciente'
             user.groups.add(user_group)
-            return HttpResponseRedirect(reverse('profile'))      # antes era 'index'
+            user = authenticate(username=form.cleaned_data['username'],
+                                    password=form.cleaned_data['password1'],
+                                    )
+            login(request, user)
+            return HttpResponseRedirect(reverse('index'))      # antes era 'index'
     else:
         form = UserCreationForm()
 
