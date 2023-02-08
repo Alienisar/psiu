@@ -35,7 +35,7 @@ def profile(request):
                 user_form.save()
                 profile_form.save()
                 messages.success(request, 'Seus dados foram alterados com sucesso!')
-                return redirect(to='accounts/profile.html')
+                return redirect(to='profile')
     else:
         user_form = UpdateUserForm(instance=request.user)
         profile_form = UpdateProfileForm(instance=request.user.profile)

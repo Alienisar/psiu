@@ -6,6 +6,9 @@ Meu perfil
 
 {% block content %}
 <div class="row my-3 p-3">
+    <h1>Meu perfil - {{user.username}}</h1>
+</div>
+<div class="row my-3 p-3">
     <img class="rounded-circle account-img" src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/>
 </div>
 {% if user_form.errors %}
@@ -47,13 +50,5 @@ Meu perfil
         <button type="reset" class="btn btn-dark btn-lg">Cancelar</button>
     </form>
 </div>
-
-
-
-<div class="row my-3 p-3">
-    <h1>Meu perfil - {{user.username}}</h1>
-</div>
-
-
 
 {% endblock content %}
