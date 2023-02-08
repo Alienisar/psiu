@@ -1,11 +1,11 @@
-from django.shortcuts import render
-
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group
 from django.contrib.auth import authenticate, login
+from django.contrib import messages
+from .forms import UpdateUserForm, UpdateProfileForm
 
 
 def signup(request):
