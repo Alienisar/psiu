@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path # modificar esta linha
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', include('staticpages.urls')), # modifique esta linha
@@ -23,4 +25,4 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')), # linha adicionada 4.2.3
     path('admin/', admin.site.urls),
     path('api/v1/', include('api.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

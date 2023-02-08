@@ -27,7 +27,20 @@ def signup(request):
     return render(request, 'accounts/signup.html', context)
 
 def profile(request):
-    return render(request, 'accounts/profile.html')
+    if request.method == 'POST':
+            user_form = UpdateUserForm(request.POST, instance=request.user)
+            profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+
+            if user_form.is_valid() and profile_form.is_valid():
+                user_form.save()
+                profile_form.save()
+                messages.success(request, 'Seus dados foram alterados com sucesso!')
+                return redirect(to='accounts-profile')
+    else:
+        user_form = UpdateUserForm(instance=request.user)
+        profile_form = UpdateProfileForm(instance=request.user.profile)
+
+    return render(request, 'accounts/profile.html', {'user_form': user_form, 'profile_form': profile_form})
 
 '''
     def signup_psi(request):
